@@ -70,7 +70,7 @@ public class HomeController {
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
-
+        model.addAttribute("job", jobRepository.findById(jobId).orElse(null));
         return "view";
     }
 
